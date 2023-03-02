@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col">
+        <div class="m-2 form-group">
+            <label for="departements" class="form-label">Sélectionner un département</label>
+            <select [(ngModel)]="selectedDepartment" class="form-control">
+                <option>---Sélectionner un département---</option>
+                <option *ngFor="let d of departements" [ngValue]="d.nom" id="{{d.code}}">{{ d.code }} - {{ d.nom }}</option>
+            </select>
+        </div>
+    </div>
+</div>
