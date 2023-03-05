@@ -1,11 +1,21 @@
 <div class="row">
     <div class="col">
         <div class="m-2 form-group">
-            <label for="departements" class="form-label">Sélectionner un département</label>
-            <select [(ngModel)]="selectedDepartment" class="form-control">
+            <label for="department" class="form-label">Sélectionner un département</label>
+            <select [(ngModel)]="selectedDepartment" class="form-control" id="department" (change)="onSelectDepartment()">
                 <option>---Sélectionner un département---</option>
                 <option *ngFor="let d of departements" [ngValue]="d.nom" id="{{d.code}}">{{ d.code }} - {{ d.nom }}</option>
             </select>
+        </div>
+        <div class="m-2 form-group" [hidden]="!selectedDepartment">
+            <label for="city" class="form-label" >Choisir une ville</label>
+            <select id="city" class="form-control">
+                <option>---Sélectionner une ville---</option>
+                <option *ngFor="let c of cityList">{{ c }}</option>
+            </select>
+        </div>
+        <div class="m-2">
+            <button class="btn btn-success">Valider</button>
         </div>
     </div>
 </div>
